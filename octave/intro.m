@@ -25,7 +25,16 @@ function force = chargeforce(q1, q2, r)
   force = k * quotient;
 endfunction
 
-% Get the hypotenuse of a right triangle given the two legs
-function c = abc(a, b)
-  c = sqrt(power(a, 2) + power(b, 2));
+# Calculate the strength of a field
+function force = fieldstrength(q, r)
+  global k;
+  magnitude = magnitude(r);
+  hcomp = r(1)/magnitude;
+  vcomp = r(2)/magnitude;
+  force = (k*q/power(magnitude,2)).*[hcomp vcomp];
+endfunction
+
+% Get the magnitude a vector given the component pieces
+function mag = magnitude(components)
+   mag = sqrt(sum(components.^2));
 endfunction
