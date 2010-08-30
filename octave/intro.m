@@ -8,7 +8,15 @@ k = ee(8.99,9);
 # Permitivity of free space
 enot = ee(8.85, -12);
 
-% Calculate the force between two charges distance r apart.
+# Electron: mass in kg, charge in coulombs
+mass_e = ee(9.11, -31);
+charge_e = ee(-1.60, -19);
+
+# Proton: mass in kg, charge in coulombs
+mass_p = ee(1.67, -27);
+charge_p = -charge_e;
+
+# Calculate the force between two charges distance r apart.
 function force = chargeforce(q1, q2, r)
   global k;
   num = q1 * q2;
